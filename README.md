@@ -12,6 +12,12 @@ Course project for Machine Learning ([Professor Robert M. Haralick](http://www.h
 
 Keywords: music classification, high-level musical feature, chord n-grams, duration, machine learning, music21, scikit-learn.
 
+Project settings:
+- Python 3.5.2
+- scikit-learn 0.18.1
+- music21 3.1.0
+- (optional, for midi-mxl conversion) MuseScore 2.0
+
 TODO
 
 - [x] Upload (processed) dataset
