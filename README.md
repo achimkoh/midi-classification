@@ -18,10 +18,22 @@ Project settings:
 - music21 3.1.0
 - (optional, for midi-mxl conversion) MuseScore 2.0
 
+### Converting MIDI files to MusicXML
+
+The original dataset consists of MIDI files. I've noticed that some scores take a long time to parse using music21, and also that part of the data like rhythm information is a bit messed up in the imported object. Converting the files into MusicXML before importing seemed to help. In Mac OS with MuseScore 2.0 installed, I used the following shell command:
+
+``` 
+> cd {TARGETDIR}  
+> find {MIDIFILEDIR} \( -name "bach*.mid" -o -name "beethoven*.mid" -o -name "debussy*.mid" -o -name "scarlatti*.mid" -o -name "victoria*.mid" \) -type f -exec cp {} . \;  
+> find . -type f -name "*.mid" -exec /Applications/MuseScore\ 2.app/Contents/MacOS/mscore {} --export-to {}.mxl \;  
+> for f in *.mxl; do mv "$f" "${f%.mid.mxl}.mxl"; done  
+> ls *.mxl > mxl_list.txt 
+```
+
 TODO
 
 - [x] Upload (processed) dataset
 - [ ] Make code cleaner, add comments, etc
-- [ ] Add pdf write-up
-- [ ] Add instructions for MIDI conversion
+- [x] Add pdf write-up
+- [x] Add instructions for MIDI conversion
 - [ ] Translate to lang:ko?
